@@ -11,7 +11,7 @@ export default class ScrollAnima {
       const offset = section.offsetTop;
       return {
         element: section,
-        offset: Math.floor.offset - this.windowMetade
+        offset: Math.floor(offset - this.windowMetade)
       };
     });
   }
@@ -20,7 +20,7 @@ export default class ScrollAnima {
     this.distance.forEach(item => {
       if (window.pageYOffset > item.offset) {
         item.element.classList.add("ativo");
-      } else if (section.classList.contains("ativo")) {
+      } else if (item.element.classList.contains("ativo")) {
         item.element.classList.remove("ativo");
       }
     });
@@ -28,7 +28,7 @@ export default class ScrollAnima {
 
   init() {
     if (this.sections.length) {
-      getDistance();
+      this.getDistance();
       this.checkDistance();
       window.addEventListener("scroll", this.checkDistance);
     }
